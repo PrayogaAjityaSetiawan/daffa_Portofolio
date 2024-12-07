@@ -1,0 +1,26 @@
+---
+import { IoMdArrowForward } from "react-icons/io";
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blogs');
+---
+
+<section>
+    {posts.map((post) => (
+    <div class="mx-4 md:mx-[100px] mt-8 flex flex-col md:flex-row  gap-[32px] border-[1px] border-[#E5E5E5] rounded-xl">
+        <div class="p-[32px] md:w-1/2 flex flex-col justify-between">
+    <div class="flex flex-col">           
+        <span class="text-[#737373]">{post.data.tags}</span>
+        <h1 class="text-[32px] leading-[40px] font-semibold py-3">{post.data.title}</h1>
+        <p class="leading-6">{post.data.description}</p>
+    </div>
+    <a href={`/blog/${post.data.title}`} class="flex items-center gap-2 cursor-pointer">
+        <span class="font-medium">Read Case Study</span>
+        <IoMdArrowForward />
+    </a>
+  </div>
+  <div class="md:w-1/2 p-4">
+    <img class="w-full" src={post.data.heroImage} alt="" />
+  </div>
+    </div>
+))}
+</section>

@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/card.astro';
+import Hero from '../components/hero.astro';
+---
+
+<Layout title="Home">
+	<div class="flex flex-col gap-4 md:px-[100px] py-[60px]">
+		<span class="text-[#737373]">Welcome! I am Daffa.</span>
+		<span class="text-[40px] leading-[48px] font-semibold">Jakarta-based designer, Focusing <br> on Digital Interface Design</span>
+	</div>
+	<Hero/>
+	<span class="px-[100px] text-[32px] font-semibold">Featured Projects</span>
+	<Card  />
+</Layout>
